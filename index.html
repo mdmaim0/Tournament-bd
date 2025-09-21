@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 Free Fire Tournament Registration 🔥</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #e63946; /* A fiery red */
+            --secondary-color: #f1faee; /* Light background */
+            --dark-color: #1d3557; /* Dark blue/gray for text */
+            --accent-color: #a8dadc; /* Light blue accent */
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.2);
+            --shadow-strong: rgba(0, 0, 0, 0.35); /* Slightly stronger shadow */
+            --gradient-start: #e63946; /* Fiery red */
+            --gradient-end: #c42d3b; /* Darker red */
+            --input-bg: #fff;
+            --promo-bg: #1d3557; /* Dark background for promo */
+            --promo-text: #ffffff; /* White text for promo */
+            --promo-gradient-start: #f7a01a; /* Orange for text animation */
+            --promo-gradient-middle: #e63946; /* Red for text animation */
+            --promo-gradient-end: #f7a01a; /* Orange for text animation */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--secondary-color);
+            line-height: 1.6;
+            color: var(--dark-color);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* --- Header Styling --- */
+        .header {
+            /* এখানে আপনার ব্যানার ইমেজের ডিরেক্ট লিংকটি বসান */
+            /* উদাহরণ: url('https://i.ibb.co/xyzabc/your-banner-image.jpg') */
+            /* অথবা, যদি শুধু গ্রেডিয়েন্ট চান, তাহলে url() অংশটি বাদ দিন */
+            background: linear-gradient(to right, rgba(230, 57, 70, 0.95), rgba(196, 45, 59, 0.95)), url('YOUR_DIRECT_BANNER_IMAGE_URL_HERE') no-repeat center center/cover;
+            padding: 70px 20px; /* Slightly more padding */
+            text-align: center;
+            color: white;
+            border-bottom-left-radius: 60px; /* More rounded */
+            border-bottom-right-radius: 60px; /* More rounded */
+            box-shadow: 0 10px 20px var(--shadow-strong); /* Stronger shadow */
+            position: relative;
+            overflow: hidden;
+            z-index: 10; /* Ensure header is above other elements if needed */
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.2) 0%, rgba(241, 250, 238, 0.05) 100%); /* Softer overlay */
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 3.5em; /* Larger title */
+            margin-bottom: 12px;
+            text-shadow: 4px 4px 8px var(--shadow-strong); /* Enhanced shadow */
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.3em; /* Larger subtitle */
+            text-shadow: 3px 3px 6px var(--shadow-strong); /* Enhanced shadow */
+            font-weight: 600;
+        }
+
+        /* --- Animated Promo Banner Styling --- */
+        .animated-promo-banner {
+            background-color: var(--promo-bg);
+            padding: 8px 0; /* Only horizontal padding, for a thinner box */
+            text-align: center;
+            margin-top: 15px; /* Move the box further down from the header */
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 5px 15px var(--shadow-medium);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            overflow: hidden; /* Crucial for marquee effect */
+            height: 50px; /* Fixed height for a thinner box */
+            display: flex; /* Use flexbox to vertically center content */
+            align-items: center; /* Vertically center */
+        }
+
+        .marquee-content {
+            display: flex; /* Allow spans to lay out horizontally */
+            animation: marquee 15s linear infinite; /* Marquee animation applied here */
+            white-space: nowrap; /* Prevent text wrapping */
+            width: fit-content; /* Content dictates width */
+            will-change: transform; /* Performance optimization */
+        }
+
+        .marquee-text {
+            font-size: 1.6em; /* Slightly smaller font for thinner box */
+            font-weight: 700;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            margin: 0;
+            padding: 0 20px; /* Add some spacing between duplicated text */
+            
+            /* Text gradient and animation for "High Quality" effect */
+            background: linear-gradient(90deg, var(--promo-gradient-start), var(--promo-gradient-middle), var(--promo-gradient-end));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            animation: gradient-shift 3s ease-in-out infinite alternate; /* Gradient animation on each text span */
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        @keyframes marquee {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Scrolls one full set of duplicated text off-screen for seamless loop */
+        }
+
+        /* --- Main Container Styling --- */
+        .container {
+            max-width: 950px; /* Slightly wider container */
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* --- Form Section Styling --- */
+        .form-section {
+            background-color: var(--input-bg);
+            padding: 40px;
+            border-radius: 18px; /* More rounded */
+            box-shadow: 0 12px 30px var(--shadow-medium); /* Enhanced shadow */
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border */
+        }
+
+        .form-section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 35px;
+            font-size: 2.2em; /* Larger heading */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 22px; /* Slightly more space */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 1.05em;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 14px 18px; /* More padding */
+            border: none;
+            border-radius: 10px; /* More rounded */
+            background-color: var(--secondary-color);
+            font-size: 1.05em;
+            color: var(--dark-color);
+            transition: all 0.4s ease; /* Smoother transition */
+            box-shadow: inset 3px 3px 7px var(--shadow-light), inset -3px -3px 7px rgba(255, 255, 255, 0.7); /* Deeper 3D effect */
+            border: 1px solid rgba(0, 0, 0, 0.08); /* Subtle border */
+        }
+
+        .input-field:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px var(--accent-color), 0 6px 15px var(--shadow-medium); /* Enhanced focus shadow */
+            transform: translateY(-3px); /* Slightly more lift */
+            background-color: #fff;
+            border-color: var(--accent-color);
+        }
+
+        .player-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px; /* More gap */
+            margin-top: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .player-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* --- Social Channels Styling --- */
+        .social-channels {
+            background-color: var(--input-bg);
+            padding: 35px; /* More padding */
+            border-radius: 18px; /* More rounded */
+            box-shadow: 0 12px 30px var(--shadow-medium); /* Enhanced shadow */
+            margin-bottom: 30px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border */
+        }
+
+        .social-channels h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.8em; /* Larger heading */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px; /* More space */
+        }
+
+        .social-item .checkbox-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px; /* More space */
+            font-size: 1.15em; /* Larger text */
+            font-weight: 600;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        .social-item .checkbox-label input[type="checkbox"] {
+            margin-right: 12px;
+            width: 22px; /* Larger checkbox */
+            height: 22px; /* Larger checkbox */
+            accent-color: var(--primary-color);
+            transform: scale(1.1); /* Slightly larger appearance */
+        }
+
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 28px; /* More padding */
+            margin-top: 12px;
+            border-radius: 10px; /* More rounded */
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.15em; /* Larger text */
+            transition: all 0.3s ease;
+            box-shadow: 4px 4px 10px var(--shadow-medium); /* Enhanced shadow */
+            border: none; /* No button border */
+        }
+
+        .social-button i {
+            margin-right: 10px;
+            font-size: 1.2em; /* Larger icon */
+        }
+
+        .youtube-button {
+            background: linear-gradient(45deg, #FF0000, #CC0000);
+        }
+
+        .youtube-button:hover {
+            transform: translateY(-4px) scale(1.03); /* More pronounced hover */
+            box-shadow: 6px 6px 15px var(--shadow-strong);
+        }
+
+        .whatsapp-button {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-4px) scale(1.03); /* More pronounced hover */
+            box-shadow: 6px 6px 15px var(--shadow-strong);
+        }
+
+        .screenshot-upload {
+            margin-top: 20px; /* More space */
+            padding: 12px;
+            border: 2px dashed var(--accent-color); /* Thicker dashed border */
+            border-radius: 10px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            width: 100%;
+            max-width: 350px; /* Limit width */
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .screenshot-upload:hover {
+            background-color: rgba(168, 218, 220, 0.2); /* Light hover effect */
+        }
+
+        .screenshot-upload::file-selector-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .screenshot-upload::file-selector-button:hover {
+            background-color: var(--gradient-end);
+        }
+
+        /* --- Submit Button Styling --- */
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 18px; /* More padding */
+            font-size: 1.6em; /* Larger font */
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            border: none;
+            border-radius: 12px; /* More rounded */
+            box-shadow: 0 10px 20px var(--shadow-medium); /* Enhanced shadow */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1.5px; /* More letter spacing */
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-7px) scale(1.02); /* More lift and scale */
+            box-shadow: 0 15px 25px var(--shadow-strong); /* Stronger hover shadow */
+        }
+
+        .submit-button:active {
+            transform: translateY(-3px) scale(0.98);
+            box-shadow: 0 6px 10px var(--shadow-light);
+        }
+
+        /* --- Footer Styling --- */
+        .footer {
+            text-align: center;
+            padding: 35px 20px; /* More padding */
+            color: rgba(29, 53, 87, 0.6); /* Softer color */
+            font-size: 0.95em;
+            margin-top: 50px; /* More space from above content */
+            border-top: 1px solid rgba(0, 0, 0, 0.05); /* Subtle top border */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 767px) {
+            .header {
+                padding: 50px 15px;
+                border-bottom-left-radius: 40px;
+                border-bottom-right-radius: 40px;
+            }
+            .header h1 {
+                font-size: 2.5em;
+            }
+            .header p {
+                font-size: 1.1em;
+            }
+            .animated-promo-banner {
+                margin-top: 10px; /* Adjust margin for mobile */
+                height: 45px; /* Adjust height for smaller font */
+            }
+            .marquee-text {
+                font-size: 1.3em; /* Smaller font for mobile */
+            }
+            .form-section, .social-channels {
+                padding: 25px;
+                margin: 20px auto;
+            }
+            .form-section h2, .social-channels h3 {
+                font-size: 1.8em;
+                margin-bottom: 25px;
+            }
+            .input-field {
+                padding: 12px 15px;
+                font-size: 1em;
+            }
+            .social-button {
+                padding: 12px 25px;
+                font-size: 1.05em;
+            }
+            .submit-button {
+                font-size: 1.3em;
+                padding: 14px;
+            }
+            .screenshot-upload {
+                max-width: 100%; /* Full width on mobile */
+            }
+        }
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .header p {
+                font-size: 0.9em;
+            }
+            .animated-promo-banner {
+                height: 40px; /* Further adjust height */
+            }
+            .marquee-text {
+                font-size: 1.1em; /* Even smaller font for small mobile */
+            }
+            .form-section, .social-channels {
+                padding: 18px;
+            }
+            .form-section h2, .social-channels h3 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <h1>🔥 Free Fire Tournament 🔥</h1>
+            <p>Register your squad and follow the channels to complete registration</p>
+        </div>
+    </header>
+
+    <!-- Animated Promo Banner (এখন নিচে, চিকন এবং লেখা অটো-রান হবে) -->
+    <section class="animated-promo-banner">
+        <div class="marquee-content">
+            <span class="marquee-text">Free Fire খেলে ইনকাম করুন দিনে ১০০০ টাকা। &nbsp;&nbsp;&nbsp;</span>
+            <span class="marquee-text">Free Fire খেলে ইনকাম করুন দিনে ১০০০ টাকা। &nbsp;&nbsp;&nbsp;</span>
+            <span class="marquee-text">Free Fire খেলে ইনকাম করুন দিনে ১০০০ টাকা। &nbsp;&nbsp;&nbsp;</span>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="form-section">
+            <h2>স্কোয়াড রেজিস্ট্রেশন</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="squadName">স্কোয়াডের নাম:</label>
+                    <input type="text" id="squadName" name="squadName" class="input-field" placeholder="আপনার স্কোয়াড এর নাম লিখুন" required>
+                </div>
+
+                <div class="player-grid">
+                    <div class="form-group">
+                        <label for="player1Name">প্লেয়ার ১ এর নাম:</label>
+                        <input type="text" id="player1Name" name="player1Name" class="input-field" placeholder="প্লেয়ার ১ এর নাম লিখুন" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="player2Name">প্লেয়ার ২ এর নাম:</label>
+                        <input type="text" id="player2Name" name="player2Name" class="input-field" placeholder="প্লেয়ার ২ এর নাম লিখুন" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="player3Name">প্লেয়ার ৩ এর নাম:</label>
+                        <input type="text" id="player3Name" name="player3Name" class="input-field" placeholder="প্লেয়ার ৩ এর নাম লিখুন" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="player4Name">প্লেয়ার ৪ এর নাম:</label>
+                        <input type="text" id="player4Name" name="player4Name" class="input-field" placeholder="প্লেয়ার ৪ এর নাম লিখুন" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="player5Name">প্লেয়ার ৫ এর নাম (ক্যাপ্টেন):</label>
+                        <input type="text" id="player5Name" name="player5Name" class="input-field" placeholder="প্লেয়ার ৫ এর নাম (ক্যাপ্টেন)" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">ফোন নাম্বার:</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" class="input-field" placeholder="আপনার ফোন নাম্বার দিন" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">ইমেইল:</label>
+                    <input type="email" id="email" name="email" class="input-field" placeholder="আপনার ইমেইল আইডি দিন" required>
+                </div>
+            </form>
+        </section>
+
+        <section class="social-channels">
+            <h3>রেজিস্ট্রেশন সম্পূর্ণ করতে আমাদের চ্যানেলগুলি ফলো করুন</h3>
+
+            <div class="social-item">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="youtubeCheck" required>
+                    আমি ইউটিউব চ্যানেলটি সাবস্ক্রাইব করেছি।
+                </label>
+                <a href="https://www.youtube.com/@Winningtour?sub_confirmation=1" target="_blank" class="social-button youtube-button">
+                    <i class="fab fa-youtube"></i> ইউটিউবে সাবস্ক্রাইব করুন
+                </a>
+                <input type="file" id="youtubeScreenshot" name="youtubeScreenshot" class="screenshot-upload" accept="image/*" required>
+                <small>সাবস্ক্রিপশনের প্রমাণ হিসেবে একটি স্ক্রিনশট আপলোড করুন।</small>
+            </div>
+
+            <div class="social-item">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="whatsappCheck" required>
+                    আমি হোয়াটসঅ্যাপ চ্যানেলটিতে জয়েন করেছি।
+                </label>
+                <a href="https://chat.whatsapp.com/GxU6UaQmAck2kkfbW977lZ" target="_blank" class="social-button whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ চ্যানেলে জয়েন করুন
+                </a>
+                <input type="file" id="whatsappScreenshot" name="whatsappScreenshot" class="screenshot-upload" accept="image/*" required>
+                <small>জয়েন করার প্রমাণ হিসেবে একটি স্ক্রিনশট আপলোড করুন।</small>
+            </div>
+            
+            <button type="submit" class="submit-button" form="registrationForm">স্কোয়াড রেজিস্টার করুন</button>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Free Fire Tournament | Organized by Winning tour</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('registrationForm');
+            const youtubeCheckbox = document.getElementById('youtubeCheck');
+            const whatsappCheckbox = document.getElementById('whatsappCheck');
+            const submitButton = document.querySelector('.submit-button');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Validate all required fields
+                let allFieldsFilled = true;
+                const requiredInputs = form.querySelectorAll('.input-field[required], .screenshot-upload[required]');
+                requiredInputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        allFieldsFilled = false;
+                        input.style.borderColor = 'var(--primary-color)'; // Highlight empty field
+                        input.style.boxShadow = '0 0 0 2px var(--primary-color)';
+                    } else {
+                        input.style.borderColor = ''; // Reset
+                        input.style.boxShadow = ''; // Reset
+                    }
+                });
+
+                if (!allFieldsFilled) {
+                    alert('অনুগ্রহ করে সকল প্রয়োজনীয় ঘর পূরণ করুন।');
+                    return;
+                }
+
+                // Validate checkboxes
+                if (!youtubeCheckbox.checked || !whatsappCheckbox.checked) {
+                    alert('রেজিস্ট্রেশন সম্পূর্ণ করতে আপনাকে অবশ্যই ইউটিউব চ্যানেলটি সাবস্ক্রাইব করতে হবে এবং হোয়াটসঅ্যাপ চ্যানেলে জয়েন করতে হবে।');
+                    return;
+                }
+
+                // Collect form data
+                const formData = new FormData(form);
+                const squadName = document.getElementById('squadName').value;
+                const playerNames = [
+                    document.getElementById('player1Name').value,
+                    document.getElementById('player2Name').value,
+                    document.getElementById('player3Name').value,
+                    document.getElementById('player4Name').value,
+                    document.getElementById('player5Name').value
+                ];
+
+                let alertMessage = `রেজিস্ট্রেশন সফল!\n\nস্কোয়াড এর নাম: ${squadName}\n\nপ্লেয়ারগণ:\n`;
+                playerNames.forEach((name, index) => {
+                    alertMessage += `প্লেয়ার ${index + 1}: ${name}\n`;
+                });
+
+                alert(alertMessage); // Show alert
+
+                form.reset(); // Reset the form
+                youtubeCheckbox.checked = false; // Manually reset checkboxes as they are outside the form element
+                whatsappCheckbox.checked = false;
+
+                // Reset styles for required inputs after successful submission
+                requiredInputs.forEach(input => {
+                    input.style.borderColor = '';
+                    input.style.boxShadow = '';
+                });
+            });
+
+            // Optional: Remove highlight on input when user starts typing
+            form.querySelectorAll('.input-field, .screenshot-upload').forEach(input => {
+                input.addEventListener('input', () => {
+                    if (input.value.trim()) {
+                        input.style.borderColor = '';
+                        input.style.boxShadow = '';
+                    }
+                });
+            });
+
+            // Prevent direct submission of the button before full form validation
+            submitButton.addEventListener('click', (event) => {
+                // The form's submit listener will handle preventDefault
+                // This is here to ensure that if someone bypasses the form's submit, the button itself has some base validation
+                // In this setup, the form's submit event is the primary handler.
+            });
+        });
+    </script>
+</body>
+</html>
